@@ -3,10 +3,11 @@ import javax.swing.*;
 
 public class Driver {
     private static JFrame frame;
+    private MainMenu menuScreen = new MainMenu();
 
     public Driver() {
         frame = new JFrame("ACCELERATION");
-        frame.setContentPane(null);//get from main menu
+        frame.setContentPane(menuScreen.getPanel());//get from main menu
         frame.setVisible(true);
         frame.setResizable(false);
         frame.pack();
