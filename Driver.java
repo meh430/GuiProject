@@ -14,6 +14,7 @@ public class Driver {
     
     public static void main(String[]args) {
         MainMenu.frame = new JFrame("ACCELERATION");
+        MainMenu.frame.setResizable();
         MainMenu.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MainMenu.frame.setContentPane(menuScreen.getMenuPanel());
         MainMenu.frame.pack();

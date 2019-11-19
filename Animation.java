@@ -7,9 +7,13 @@ public class Animation implements ActionListener {
     private AnimationPanel animatePanel = new AnimationPanel();
 
     private JButton backButton = new JButton("<- BACK");
+    private JButton goButtone = new JButton("GO");
 
-    private JSlider cartMassSlide = new JSlider(0, 20);
-    private JSlider weightSlide = new JSlider(0, 20);
+    private JSlider cartMassSlide = new JSlider(1, 20);
+    private JSlider weightSlide = new JSlider(1, 20);
+    private JSlider gravitySlide = new JSlider(1, 20);
+
+    private JLabel titleLabel = new JLabel("VARIABLES");
 
     @Override
     public void actionPerformed(ActionEvent e) {
