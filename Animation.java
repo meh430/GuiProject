@@ -82,7 +82,7 @@ public class Animation implements ActionListener, ChangeListener {
     }
 
     private double round(double dblNum) {
-        return Math.round(dblNum * 100) / 100;
+        return Math.round(dblNum * 100.0) / 100.0;
     }
 
     private void initializeSliders() {
