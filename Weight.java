@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 public class Weight {
     private final int intDimensions = 30, intStartX = 735, intStartY = 175;
-    private int intRope = 0,  intRopeX = 750, intRopeY = 150;
+    private int intRope = 0,  intRopeX = 750, intRopeY = 175;
     private double dblGravity, dblMass, dblForceGravity, dblNetForce, dblAcceleration, dblTension, dblVelocity = 0;
     private boolean blnMoving = false;
 

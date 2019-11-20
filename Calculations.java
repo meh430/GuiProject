@@ -1,28 +1,41 @@
 public class Calculations {
     public static double calculateAcceleration(Weight weight, Cart cart) {
-        double dblWeightMass = weight.getMass();
-        double dblCartMass = 0;//cart.getMass();
-        double dblForceGravity = calculateForceGravity(weight);
-        return dblForceGravity/(dblWeightMass + dblCartMass);
+        if(weight != null && cart != null) {
+            double dblWeightMass = weight.getMass();
+            double dblCartMass = cart.getMass();
+            double dblForceGravity = calculateForceGravity(weight);
+            return dblForceGravity/(dblWeightMass + dblCartMass);
+        } 
+
+        return -1;
     }
 
     public static double calculateForceGravity(Weight weight) {
-        double dblWeightMass = weight.getMass();
-        double dblGravity = weight.getGravity();
-        return dblWeightMass * dblGravity;
+        if(weight != null) {
+            double dblWeightMass = weight.getMass();
+            double dblGravity = weight.getGravity();
+            return dblWeightMass * dblGravity;
+        }
+
+        return -1;
     }
 
     public static double calculateTension(Cart cart) {
-        double dblCartMass = 0;//cart.getMass();
-        double dblAcceleration = 0;//cart.getAcceleration();
-
-        return dblCartMass * dblAcceleration;
+        if(cart != null) {
+            double dblCartMass = cart.getMass();
+            double dblAcceleration = cart.getAcceleration();
+            return dblCartMass * dblAcceleration;
+        }
+        return -1;
     }
 
-    public static double calculateNetForce(Weight weight) {
-        double dblForceGravity = weight.getForceGravity();
-        double dblTension = weight.getTension();
+    public static double calculateNetForce(Weight weight, Cart cart) {
+        if(weight != null) {
+            double dblForceGravity = calculateForceGravity(weight);
+            double dblTension = calculateTension(cart);//weight.getTension();
 
-        return dblForceGravity - dblTension;
+            return dblForceGravity - dblTension;
+        }
+        return -1;
     }
 }

@@ -9,6 +9,9 @@ public class Cart {
     private double dblMass, dblAcceleration, dblTension, dblVelocity = 0;
     private boolean blnMoving = false;
 
+    public Cart(double dblMass) {
+        this.dblMass = dblMass;
+    }
 
     public void startMoving() {
         blnMoving = true;
@@ -49,8 +52,6 @@ public class Cart {
     public double getVelocity() {
         return dblVelocity;
     }
-
-    public Cart() {}
 
     public void drawCart(Graphics g) {
         g.setColor(Color.RED);

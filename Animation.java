@@ -7,6 +7,7 @@ public class Animation implements ActionListener, ChangeListener {
     public static final int intRopeLength = 400;
     public static Weight weight;
     public static Cart cart;
+    private double dblAcceleration;
 
     private final String strCartMass = "Cart Mass: ", strWeight = "Weight Mass: ", strGravity = "Gravity: ",
                     strAcceleration = "Acceleration of System: ", strTension = "Force of Tension: ",
@@ -47,11 +48,16 @@ public class Animation implements ActionListener, ChangeListener {
     public void stateChanged(ChangeEvent e) {
         if(e.getSource() == cartMassSlide) {
             cartMassLabel.setText(strCartMass + cartMassSlide.getValue());
+            cart.setMass(cartMassSlide.getValue());
         } else if(e.getSource() == weightSlide) {
             weightLabel.setText(strWeight + weightSlide.getValue());
+            weight.setMass(weightSlide.getValue());
         } else if(e.getSource() == gravitySlide) {
             gravityLabel.setText(strGravity + gravitySlide.getValue());
+            weight.setGravity(gravitySlide.getValue());
         }
+
+        initializeVariables();
     }
 
     public Animation() {
@@ -60,6 +66,23 @@ public class Animation implements ActionListener, ChangeListener {
         initializeButtons();
         initializeLabels();
         initializeSliders();
+        initializeVariables();
+    }
+
+    private void initializeVariables() {
+        dblAcceleration = Calculations.calculateAcceleration(weight, cart);
+        cart.setAcceleration(dblAcceleration);
+        weight.setAcceleration(dblAcceleration);
+        //System.out.println(Math.round(Calculations.calculateAcceleration(weight, cart) * 100)/100);
+        accelerationLabel.setText(strAcceleration + round(dblAcceleration));
+        massLabel.setText(strMass + round(weight.getMass() + cart.getMass()));
+        tensionLabel.setText(strTension + round(Calculations.calculateTension(cart)));
+        gravityForceLabel.setText(strGravityForce + round(Calculations.calculateForceGravity(weight)));
+        netForceLabel.setText(strNetForce + round(Calculations.calculateNetForce(weight, cart)));
+    }
+
+    private double round(double dblNum) {
+        return Math.round(dblNum * 100) / 100;
     }
 
     private void initializeSliders() {
@@ -76,7 +99,7 @@ public class Animation implements ActionListener, ChangeListener {
         gravitySlide.addChangeListener(this);
 
         weight = new Weight(weightSlide.getValue(), gravitySlide.getValue());
-        cart = new Cart();
+        cart = new Cart(cartMassSlide.getValue());
 
         animatePanel.add(cartMassSlide);
         animatePanel.add(gravitySlide);
@@ -101,30 +124,30 @@ public class Animation implements ActionListener, ChangeListener {
         titleLabel.setSize(100, 25);
         titleLabel.setLocation(525, 300);
 
-        accelerationLabel.setSize(150, 25);
+        accelerationLabel.setSize(200, 25);
         accelerationLabel.setLocation(intVarLabelX, 325);
 
-        massLabel.setSize(150, 25);
+        massLabel.setSize(200, 25);
         massLabel.setLocation(intVarLabelX, 350);
 
-        tensionLabel.setSize(150, 25);
+        tensionLabel.setSize(200, 25);
         tensionLabel.setLocation(intVarLabelX, 375);
 
-        gravityForceLabel.setSize(150, 25);
+        gravityForceLabel.setSize(200, 25);
         gravityForceLabel.setLocation(intVarLabelX, 400);
 
-        netForceLabel.setSize(150, 25);
+        netForceLabel.setSize(200, 25);
         netForceLabel.setLocation(intVarLabelX, 425);
 
-        cartMassLabel.setSize(150, 25);
+        cartMassLabel.setSize(200, 25);
         cartMassLabel.setLocation(intSlideLabelX, 300);
         cartMassLabel.setText(strCartMass + cartMassSlide.getValue());
         
-        weightLabel.setSize(150, 25);
+        weightLabel.setSize(200, 25);
         weightLabel.setLocation(intSlideLabelX, 350);
         weightLabel.setText(strWeight + weightSlide.getValue());
 
-        gravityLabel.setSize(150, 25);
+        gravityLabel.setSize(200, 25);
         gravityLabel.setLocation(intSlideLabelX, 400);
         gravityLabel.setText(strGravity + gravitySlide.getValue());
 
