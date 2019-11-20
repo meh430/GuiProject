@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 public class Weight {
-    private final int intDimensions = 30, intStartX = 735, intStartY = 175;
+    private int intDimensions = 30, intStartX = 735, intStartY = 175;
     private int intRope = 0,  intRopeX = 750, intRopeY = 175;
     private double dblGravity, dblMass, dblForceGravity, dblNetForce, dblAcceleration, dblTension, dblVelocity = 0;
     private boolean blnMoving = false;
@@ -76,7 +76,12 @@ public class Weight {
     }
 
     public void moveWeight(Graphics g) {
-        g.fillRect(intStartX, intStartY + (int)dblVelocity, intDimensions, intDimensions);
+        if(blnMoving) {
+            dblVelocity += (dblAcceleration * 5)/60.0;
+            intStartY += (int)dblVelocity;
+        }
+        g.setColor(Color.BLACK);
+        g.fillRect(735, intStartY, intDimensions, intDimensions);
     }
 
     public void drawWeight(Graphics g) {
@@ -84,9 +89,13 @@ public class Weight {
     }
 
     public void drawRope(Graphics g) {
-        intRopeY += (int)dblVelocity;
-        g.drawLine(intRopeX, intRopeY, intRopeX, intRopeY + (int)dblVelocity);
-        if(intRope >= Animation.intRopeLength) {
+        if(blnMoving) {
+            intRope += (int)dblVelocity;
+            intRopeY += (int)dblVelocity;
+        }
+        g.setColor(Color.BLACK);
+        g.drawLine(750, 175, 750, intRopeY);
+        if(intRope >= 300) {
             blnMoving = false;
         }
     }

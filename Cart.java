@@ -2,9 +2,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Cart {
-    private int intCartLength = 100, intCartHeight = 75, intStartX = 5, intStartY = 150,
-    intWheelDimensions = 25, intWheel1StartX = 5, intWheel2StartX = 80, intWheelStartY = 225, intRope = Animation.intRopeLength,
-    intRopeX = 105, intRopeY = 150, intRopeEndX= 750, intRopeEndY = 150;
+    private int intCartLength = 100, intCartHeight = 75, intStartX = 300, intStartY = 150,
+    intWheelDimensions = 25, intWheel1StartX = 300, intWheel2StartX = 375, intWheelStartY = 225, intRope = 300,
+    intRopeX = 400, intRopeY = 150, intRopeEndX= 750, intRopeEndY = 150;
 
     private double dblMass, dblAcceleration, dblTension, dblVelocity = 0;
     private boolean blnMoving = false;
@@ -62,17 +62,28 @@ public class Cart {
     }
 
     public void moveCart(Graphics g) {
+        if(blnMoving) {
+            dblVelocity += (dblAcceleration * 5)/60.0;
+            intStartX += (int)dblVelocity;
+            intWheel1StartX += (int)dblVelocity;
+            intWheel2StartX += (int)dblVelocity;
+        }
         g.setColor(Color.RED);
-        g.fillRect(intStartX + (int)dblVelocity, intStartY, intCartLength, intCartHeight);
+        g.fillRect(intStartX, intStartY, intCartLength, intCartHeight);
         g.setColor(Color.YELLOW);
-        g.fillOval(intWheel1StartX + (int)dblVelocity, intWheelStartY, intWheelDimensions, intWheelDimensions);
-        g.fillOval(intWheel2StartX + (int)dblVelocity, intWheelStartY, intWheelDimensions, intWheelDimensions);
+        g.fillOval(intWheel1StartX, intWheelStartY, intWheelDimensions, intWheelDimensions);
+        g.fillOval(intWheel2StartX, intWheelStartY, intWheelDimensions, intWheelDimensions);
     }
 
     public void drawMovingRope(Graphics g) {
+        if(blnMoving) {
+            intRope -= (int)dblVelocity;
+            intRopeX += (int)dblVelocity;
+        }
+        
         g.setColor(Color.BLACK);
-        intRopeX -= (int)dblVelocity;
-        g.drawLine(intRopeX, intRopeY, intRopeEndX, intRopeEndY);
+
+        g.drawLine(intRopeX, 150, 750, 150);
         if(intRope <= 0) {
             blnMoving = false;
         }

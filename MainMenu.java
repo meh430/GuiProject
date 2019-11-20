@@ -16,14 +16,14 @@ public class MainMenu implements ActionListener {
     private JButton scoreButton = new JButton("SCORES");
     private JButton aboutButton = new JButton("ABOUT");
 
-    private Animation anime = new Animation();
+    //private Animation anime = new Animation();
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //set mainPanel depending on the button chosen  
         if(e.getSource() == startButton) {
             System.out.println("START");
-            Driver.changePanel(anime.getAnimationPanel());
+            Driver.changePanel(new Animation().getAnimationPanel());
         } else if(e.getSource() == testButton) {
             System.out.println("TEST");
             Driver.changePanel(new Animation().getAnimationPanel());

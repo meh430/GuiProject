@@ -3,6 +3,9 @@ import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.event.*;
 
+//disable go button
+//add more checks to cart and weight
+
 public class Animation implements ActionListener, ChangeListener {
     public static final int intRopeLength = 400;
     public static Weight weight;
@@ -19,6 +22,7 @@ public class Animation implements ActionListener, ChangeListener {
 
     private JButton backButton = new JButton("<- BACK");
     private JButton goButton = new JButton("GO");
+    private JButton resetButton = new JButton("RESET");
 
     private JSlider cartMassSlide = new JSlider(1, 20);
     private JLabel cartMassLabel = new JLabel(strCartMass);
@@ -36,15 +40,22 @@ public class Animation implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == mainTimer) {
+            animatePanel.repaint();
+        }
+
         if(e.getSource() == backButton) {
             Driver.changePanel(Driver.menuScreen.getMenuPanel());
         } else if(e.getSource() == goButton) {
+            mainTimer.start();
             weight.startMoving();
-            //start simulation
+            cart.startMoving();
+        } else if(e.getSource() == resetButton) {
+            Driver.changePanel(new Animation().getAnimationPanel());
         }
     }
 
-    @Override 
+    @Override
     public void stateChanged(ChangeEvent e) {
         if(e.getSource() == cartMassSlide) {
             cartMassLabel.setText(strCartMass + cartMassSlide.getValue());
@@ -116,8 +127,13 @@ public class Animation implements ActionListener, ChangeListener {
         goButton.setLocation(25, 500);
         goButton.addActionListener(this);
 
+        resetButton.setSize(100,25);
+        resetButton.setLocation(25, 470);
+        resetButton.addActionListener(this);
+
         animatePanel.add(goButton);
         animatePanel.add(backButton);
+        animatePanel.add(resetButton);
     }
 
     private void initializeLabels() {
