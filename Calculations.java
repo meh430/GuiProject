@@ -32,7 +32,7 @@ public class Calculations {
     public static double calculateNetForce(Weight weight, Cart cart) {
         if(weight != null) {
             double dblForceGravity = calculateForceGravity(weight);
-            double dblTension = calculateTension(cart);//weight.getTension();
+            double dblTension = calculateTension(cart);
 
             return dblForceGravity - dblTension;
         }

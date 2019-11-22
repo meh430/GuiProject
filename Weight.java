@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Weight {
     private int intDimensions = 30, intStartX = 735, intStartY = 175;
     private int intRope = 0,  intRopeX = 750, intRopeY = 175;
-    private double dblGravity, dblMass, dblForceGravity, dblNetForce, dblAcceleration, dblTension, dblVelocity = 0;
+    private double dblGravity, dblMass, dblAcceleration, dblVelocity = 0;
     private boolean blnMoving = false;
 
     public Weight(double dblMass, double dblGravity) {
@@ -35,40 +35,8 @@ public class Weight {
         return dblMass;
     }
 
-    public void setForceGravity(double dblForceGravity) {
-        this.dblForceGravity = dblForceGravity;
-    }
-
-    public double getForceGravity() {
-        return dblForceGravity;
-    }
-
-    public void setNetForce(double dblNetForce) {
-        this.dblNetForce = dblNetForce;
-    }
-
-    public double getNetForce() {
-        return dblNetForce;
-    }
-
     public void setAcceleration(double dblAcceleration) {
         this.dblAcceleration = dblAcceleration;
-    }
-
-    public double getAcceleration() {
-        return dblAcceleration;
-    }
-
-    public void setTension(double dblTension) {
-        this.dblTension = dblTension;
-    }
-
-    public double getTension() {
-        return dblTension;
-    }
-
-    public void setVelocity(double dblVelocity) {
-        this.dblVelocity = dblVelocity;
     }
 
     public double getVelocity() {

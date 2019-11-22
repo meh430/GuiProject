@@ -21,13 +21,17 @@ public class AnimationPanel extends JPanel {
         } else if(Animation.weight != null) {
             Animation.weight.drawWeight(g);
         }
+
         if(Animation.cart.isMoving()) {
             Animation.cart.moveCart(g);
             Animation.cart.drawMovingRope(g);
-        } else if(Animation.cart != null) {
+        } else if(Animation.cart.stopped()) {
+            Animation.cart.drawCartEnd(g);
+            Animation.cart.drawRope(g);
+        } else {
             Animation.cart.drawCart(g);
             Animation.cart.drawRope(g);
-        } 
+        }
     }
 
     public void drawPlatform(Graphics g) {

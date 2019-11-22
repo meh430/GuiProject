@@ -6,15 +6,28 @@ public class Cart {
     intWheelDimensions = 25, intWheel1StartX = 300, intWheel2StartX = 375, intWheelStartY = 225, intRope = 300,
     intRopeX = 400, intRopeY = 150, intRopeEndX= 750, intRopeEndY = 150;
 
-    private double dblMass, dblAcceleration, dblTension, dblVelocity = 0;
-    private boolean blnMoving = false;
+    private double dblMass, dblAcceleration, dblVelocity = 0;
+    private boolean blnMoving = false, blnStopped = false;
+    double dblTime = 0;
 
     public Cart(double dblMass) {
         this.dblMass = dblMass;
     }
 
+    public double getTime() {
+        return dblTime;
+    }
+
+    public void incrementTime() {
+        dblTime += (1000.0/60.0);
+    }
+
     public void startMoving() {
         blnMoving = true;
+    }
+
+    public boolean stopped() {
+        return blnStopped;
     }
 
     public boolean isMoving() {
@@ -37,18 +50,6 @@ public class Cart {
         return dblAcceleration;
     }
 
-    public void setTension(double dblTension) {
-        this.dblTension = dblTension;
-    }
-
-    public double getTension() {
-        return dblTension;
-    }
-
-    public void setVelocity(double dblVelocity) {
-        this.dblVelocity = dblVelocity;
-    }
-
     public double getVelocity() {
         return dblVelocity;
     }
@@ -68,11 +69,22 @@ public class Cart {
             intWheel1StartX += (int)dblVelocity;
             intWheel2StartX += (int)dblVelocity;
         }
+
+        
         g.setColor(Color.RED);
         g.fillRect(intStartX, intStartY, intCartLength, intCartHeight);
         g.setColor(Color.YELLOW);
         g.fillOval(intWheel1StartX, intWheelStartY, intWheelDimensions, intWheelDimensions);
         g.fillOval(intWheel2StartX, intWheelStartY, intWheelDimensions, intWheelDimensions);
+        
+    }
+
+    public void drawCartEnd(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillRect(600, intStartY, intCartLength, intCartHeight);
+        g.setColor(Color.YELLOW);
+        g.fillOval(600, intWheelStartY, intWheelDimensions, intWheelDimensions);
+        g.fillOval(675, intWheelStartY, intWheelDimensions, intWheelDimensions);
     }
 
     public void drawMovingRope(Graphics g) {
@@ -86,6 +98,7 @@ public class Cart {
         g.drawLine(intRopeX, 150, 750, 150);
         if(intRope <= 0) {
             blnMoving = false;
+            blnStopped = true;
         }
     }
 
