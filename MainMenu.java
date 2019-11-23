@@ -26,7 +26,7 @@ public class MainMenu implements ActionListener {
             Driver.changePanel(new Animation().getAnimationPanel());
         } else if(e.getSource() == testButton) {
             System.out.println("TEST");
-            Driver.changePanel(new Animation().getAnimationPanel());
+            Driver.changePanel(new Test().getTestPanel());
         } else if(e.getSource() == helpButton) {
             System.out.println("HELP");
             Driver.changePanel(new MainMenu().getMenuPanel());

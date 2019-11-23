@@ -10,6 +10,10 @@ public class QuestionRepo {
     public QuestionRepo() {
         questionList.add(new QuestionAnswer("Question 1", "1"));
         questionList.add(new QuestionAnswer("Question 2", "2"));
+        questionList.add(new QuestionAnswer("Question 3", "3"));
+        questionList.add(new QuestionAnswer("Question 4", "4"));
+        questionList.add(new QuestionAnswer("Question 5", "5"));
+        questionList.add(new QuestionAnswer("Question 6", "6"));
 
     }
 
