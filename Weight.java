@@ -1,8 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 public class Weight {
-    private int intDimensions = 30, intStartX = 735, intStartY = 175;
-    private int intRope = 0,  intRopeX = 750, intRopeY = 175;
+    private final int intDimensions = 30, intX = 735, intRopeX = 750;
+    private int intY = 175, intRope = 0;
     private double dblGravity, dblMass, dblAcceleration, dblVelocity = 0;
     private boolean blnMoving = false;
 
@@ -46,23 +46,24 @@ public class Weight {
     public void moveWeight(Graphics g) {
         if(blnMoving) {
             dblVelocity += (dblAcceleration * 5)/60.0;
-            intStartY += (int)dblVelocity;
+            //intY += (int)dblVelocity;
+            intY += Math.round(dblVelocity);
         }
         g.setColor(Color.BLACK);
-        g.fillRect(735, intStartY, intDimensions, intDimensions);
+        g.fillRect(intX, intY, intDimensions, intDimensions);
     }
 
     public void drawWeight(Graphics g) {
-        g.fillRect(intStartX, intStartY, intDimensions, intDimensions);
+        g.fillRect(intX, intY, intDimensions, intDimensions);
     }
 
     public void drawRope(Graphics g) {
         if(blnMoving) {
-            intRope += (int)dblVelocity;
-            intRopeY += (int)dblVelocity;
+            intRope += Math.round(dblVelocity);
+            //intRope += (int)dblVelocity;
         }
         g.setColor(Color.BLACK);
-        g.drawLine(750, 175, 750, intRopeY);
+        g.drawLine(intRopeX, 175, intRopeX, intY);
         if(intRope >= 300) {
             blnMoving = false;
         }

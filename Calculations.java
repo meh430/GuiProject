@@ -1,4 +1,9 @@
 public class Calculations {
+
+    public static double round(double dblNum) {
+        return Math.round(dblNum * 100.0) / 100.0;
+    }
+
     public static double calculateAcceleration(Weight weight, Cart cart) {
         if(weight != null && cart != null) {
             double dblWeightMass = weight.getMass();

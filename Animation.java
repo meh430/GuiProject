@@ -50,9 +50,9 @@ public class Animation implements ActionListener, ChangeListener {
                 goButton.setEnabled(false);
                 mainTimer.stop();
             }
-            velocityLabel.setText(strVelocity + round(cart.getVelocity()) + strVelocUnits);
+            velocityLabel.setText(strVelocity + Calculations.round(cart.getVelocity()) + strVelocUnits);
             cart.incrementTime();
-            timeLabel.setText(strTime + round(cart.getTime()/1000.0) + strTimeUnits);
+            timeLabel.setText(strTime + Calculations.round(cart.getTime()/1000.0) + strTimeUnits);
         }
 
         if(e.getSource() == backButton) {
@@ -95,16 +95,11 @@ public class Animation implements ActionListener, ChangeListener {
         dblAcceleration = Calculations.calculateAcceleration(weight, cart);
         cart.setAcceleration(dblAcceleration);
         weight.setAcceleration(dblAcceleration);
-        //System.out.println(Math.round(Calculations.calculateAcceleration(weight, cart) * 100)/100);
-        accelerationLabel.setText(strAcceleration + round(dblAcceleration) + strAccelUnits);
-        massLabel.setText(strMass + round((weight.getMass() / 2.0) + (cart.getMass() / 2.0)) + strMassUnits);
-        tensionLabel.setText(strTension + round(Calculations.calculateTension(cart)) + strForceUnits);
-        gravityForceLabel.setText(strGravityForce + round(Calculations.calculateForceGravity(weight)) + strForceUnits);
-        netForceLabel.setText(strNetForce + round(Calculations.calculateNetForce(weight, cart)) + strForceUnits);
-    }
-
-    private double round(double dblNum) {
-        return Math.round(dblNum * 100.0) / 100.0;
+        accelerationLabel.setText(strAcceleration + Calculations.round(dblAcceleration) + strAccelUnits);
+        massLabel.setText(strMass + Calculations.round(weight.getMass() + cart.getMass()) + strMassUnits);
+        tensionLabel.setText(strTension + Calculations.round(Calculations.calculateTension(cart)) + strForceUnits);
+        gravityForceLabel.setText(strGravityForce + Calculations.round(Calculations.calculateForceGravity(weight)) + strForceUnits);
+        netForceLabel.setText(strNetForce + Calculations.round(Calculations.calculateNetForce(weight, cart)) + strForceUnits);
     }
 
     private void initializeSliders() {
