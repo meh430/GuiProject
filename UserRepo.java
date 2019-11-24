@@ -18,21 +18,22 @@ public class UserRepo {
     public void loadUsers() {
         userList.clear();
         reader = getReader();
-        String strName;
-        double dblTestScore;
+        String strName = readLine();
+        int intTestScore;
         String strTimeTaken;
         String strTimeStamp;
-        String strContents = readLine();
-        while(strContents!=null) {
-            strName = readLine();
-            strContents = readLine();
-            dblTestScore = Double.parseDouble(readLine());
-            strContents = readLine();
+        while(strName != null) {
+            intTestScore = Integer.parseInt(readLine());
             strTimeTaken = readLine();
-            strContents = readLine();
             strTimeStamp = readLine();
-            strContents = readLine();
-            userList.add(new User(strName, dblTestScore, strTimeTaken, strTimeStamp));
+            strName = readLine();
+            userList.add(new User(strName, intTestScore, strTimeTaken, strTimeStamp));
+        }
+
+        try {
+            reader.close();
+        } catch(IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -54,6 +55,8 @@ public class UserRepo {
             writer.println(user.getTimeTaken());
             writer.println(user.getTimeStamp());
         }
+        
+        writer.close();
     }
 
     private PrintWriter getWriter() {

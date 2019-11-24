@@ -2,22 +2,22 @@ import java.util.ArrayList;
 
 public class User {
     private String strName;
-    private double dblTestScore;
+    private int intTestScore;
     private String strTimeTaken;
     private String strTimeStamp;
     private static ArrayList<String> randomNameList = new ArrayList<>();
 
-    public User(String strName, double dblTestScore, String strTimeTaken, String strTimeStamp) {
+    public User(String strName, int intTestScore, String strTimeTaken, String strTimeStamp) {
         this.strName = strName;
-        this.dblTestScore = dblTestScore;
+        this.intTestScore = intTestScore;
         this.strTimeTaken = strTimeTaken;
         this.strTimeStamp = strTimeStamp;
-        randomNameList.add("BRUH");
-        randomNameList.add("MOMENT");
-        randomNameList.add("Donald J Trump");
     }   
 
     public static String getRandomName() {
+        randomNameList.add("BRUH");
+        randomNameList.add("MOMENT");
+        randomNameList.add("Donald J Trump");
         int intRandomIndex = (int)(Math.random()*randomNameList.size());
         return randomNameList.get(intRandomIndex);
     }
@@ -26,8 +26,8 @@ public class User {
         return strName;
     } 
 
-    public double getScore() {
-        return dblTestScore;
+    public int getScore() {
+        return intTestScore;
     }
 
     public String getTimeTaken() {
