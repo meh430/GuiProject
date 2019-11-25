@@ -16,6 +16,7 @@ public class Test implements ActionListener {
 
     private JLabel mainLabel = new JLabel("TEST");
     private JLabel timeLabel = new JLabel("Time Taken: 0s");
+    private JLabel scoreLabel = new JLabel("Score: 5/5");
     private JLabel question1Label = new JLabel("Question 1");
     private JLabel question2Label = new JLabel("Question 2");
     private JLabel question3Label = new JLabel("Question 3");
@@ -46,11 +47,15 @@ public class Test implements ActionListener {
         if(e.getSource() == backButton) {
             Driver.changePanel(Driver.menuScreen.getMenuPanel());
         } else if(e.getSource() == submitButton) {
+            submitButton.setEnabled(false);
             String strName = nameField.getText();
             if(strName == null || strName.equalsIgnoreCase("")) {
                 strName = User.getRandomName();
             }
-            users.addUser(new User(strName, checkAnswers(), intTime + "", new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm:ss", Locale.CANADA).format(new Date())));
+            int intScore = checkAnswers();
+            scoreLabel.setVisible(true);
+            scoreLabel.setText("Score: " + intScore + "/5");
+            users.addUser(new User(strName, intScore, intTime + "", new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm:ss", Locale.CANADA).format(new Date())));
             users.saveUsers();
         }
 
@@ -186,13 +191,18 @@ public class Test implements ActionListener {
         nameField.setSize(150, 25);
         nameField.setLocation(60, 30);
 
-        timeLabel.setSize(200, 25);
-        timeLabel.setLocation(600, 70);
+        timeLabel.setSize(100, 25);
+        timeLabel.setLocation(600, 10);
+
+        scoreLabel.setVisible(false);
+        scoreLabel.setSize(100, 25);
+        scoreLabel.setLocation(600, 30);
 
         testPanel.add(mainLabel);
         testPanel.add(nameLabel);
         testPanel.add(nameField);
         testPanel.add(timeLabel);
+        testPanel.add(scoreLabel);
     }
 
     private int checkAnswers() {

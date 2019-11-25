@@ -81,6 +81,10 @@ public class UserRepo {
         return null;
     }
 
+    public ArrayList<User> getUserList() {
+        return userList;
+    }
+    
     private boolean openingFileFailed() {
         return blnErrorOpening;
     }
