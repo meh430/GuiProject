@@ -10,7 +10,7 @@ import javax.swing.event.*;
 public class Test implements ActionListener {
     private Timer countTimer = new Timer(1000, this);
     private int intTime = 0;
-    private final int intQuestionWidth = 500, intQuestionHeight = 25, intRadioWidth = 50;
+    private final int intQuestionWidth = 800, intQuestionHeight = 25, intRadioWidth = 50;
 
     private JPanel testPanel = new JPanel(null);
 

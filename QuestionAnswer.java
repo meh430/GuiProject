@@ -16,8 +16,8 @@ public class QuestionAnswer {
         mockAnswerList.add("8.5");
         mockAnswerList.add("9.3");
         mockAnswerList.add("6.9");
-        mockAnswerList.add("235");
-        mockAnswerList.add("536");
+        mockAnswerList.add("23.5");
+        mockAnswerList.add("53.6");
         mockAnswerList.add("25");
         mockAnswerList.add("86");
         mockAnswerList.add("53");

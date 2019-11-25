@@ -15,9 +15,34 @@ public class User {
     }   
 
     public static String getRandomName() {
-        randomNameList.add("BRUH");
-        randomNameList.add("MOMENT");
+        randomNameList.add("Boomer");
+        randomNameList.add("Bruh");
         randomNameList.add("Donald J Trump");
+        randomNameList.add("Peter Parker");
+        randomNameList.add("Tony Stark");
+        randomNameList.add("Steve Rogers");
+        randomNameList.add("Clark Kent");
+        randomNameList.add("Bruce Wayne");
+        randomNameList.add("James Buchanan Barnes");
+        randomNameList.add("Peter Quill");
+        randomNameList.add("Bruce Banner");
+        randomNameList.add("Thor Odinson");
+        randomNameList.add("Natasha Romanoff");
+        randomNameList.add("Clint Barton");
+        randomNameList.add("James Rhodes");
+        randomNameList.add("Sam Wilson  ");
+        randomNameList.add("Pietro Maximoff");
+        randomNameList.add("Wanda");
+        randomNameList.add("J.A.R.V.I.S");
+        randomNameList.add("Hank Pym");
+        randomNameList.add("Scott Lang");
+        randomNameList.add("Hope Van Dyne");
+        randomNameList.add("Yondu");
+        randomNameList.add("T'Challa");
+        randomNameList.add("Stephen Strange");
+        randomNameList.add("Happy Hogan");
+
+
         int intRandomIndex = (int)(Math.random()*randomNameList.size());
         return randomNameList.get(intRandomIndex);
     }
