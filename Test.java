@@ -23,6 +23,8 @@ public class Test implements ActionListener {
     private JLabel question4Label = new JLabel("Question 4");
     private JLabel question5Label = new JLabel("Question 5");
 
+    private ButtonGroup [] answerGroups = new ButtonGroup[5];
+    
     private JRadioButton [] answerRadio1 = new JRadioButton[4];
     private JRadioButton [] answerRadio2 = new JRadioButton[4];
     private JRadioButton [] answerRadio3 = new JRadioButton[4];
@@ -31,8 +33,6 @@ public class Test implements ActionListener {
 
     private QuestionAnswer [] testQuestions = new QuestionRepo().getRandomQuestions();
     private String [] strActualAnswers = new String[5];
-
-    private ButtonGroup [] answerGroups = new ButtonGroup[5];
 
     private JButton backButton = new JButton("<- BACK");
     private JButton submitButton = new JButton("SUBMIT");
@@ -55,6 +55,7 @@ public class Test implements ActionListener {
             int intScore = checkAnswers();
             scoreLabel.setVisible(true);
             scoreLabel.setText("Score: " + intScore + "/5");
+
             users.addUser(new User(strName, intScore, intTime + "", new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm:ss", Locale.CANADA).format(new Date())));
             users.saveUsers();
         }

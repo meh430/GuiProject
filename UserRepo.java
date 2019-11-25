@@ -26,8 +26,8 @@ public class UserRepo {
             intTestScore = Integer.parseInt(readLine());
             strTimeTaken = readLine();
             strTimeStamp = readLine();
-            strName = readLine();
             userList.add(new User(strName, intTestScore, strTimeTaken, strTimeStamp));
+            strName = readLine();
         }
 
         try {
