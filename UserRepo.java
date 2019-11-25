@@ -20,13 +20,13 @@ public class UserRepo {
         reader = getReader();
         String strName = readLine();
         int intTestScore;
-        String strTimeTaken;
+        int intTimeTaken;
         String strTimeStamp;
         while(strName != null) {
             intTestScore = Integer.parseInt(readLine());
-            strTimeTaken = readLine();
+            intTimeTaken = Integer.parseInt(readLine());
             strTimeStamp = readLine();
-            userList.add(new User(strName, intTestScore, strTimeTaken, strTimeStamp));
+            userList.add(new User(strName, intTestScore, intTimeTaken, strTimeStamp));
             strName = readLine();
         }
 

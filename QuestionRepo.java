@@ -8,7 +8,7 @@ public class QuestionRepo {
     ArrayList<QuestionAnswer> questionList = new ArrayList<>();
 
     public QuestionRepo() {
-        questionList.add(new QuestionAnswer("Question 1", "1"));
+        questionList.add(new QuestionAnswer("If a man came into my shower and I kinda liked it, am I gay?", "1"));
         questionList.add(new QuestionAnswer("Question 2", "2"));
         questionList.add(new QuestionAnswer("Question 3", "3"));
         questionList.add(new QuestionAnswer("Question 4", "4"));

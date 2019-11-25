@@ -45,7 +45,7 @@ public class Weight {
 
     public void moveWeight(Graphics g) {
         if(blnMoving) {
-            dblVelocity += (dblAcceleration * 5)/60.0;
+            dblVelocity += (dblAcceleration * 5)/48.0;
             //intY += (int)dblVelocity;
             intY += Math.round(dblVelocity);
         }

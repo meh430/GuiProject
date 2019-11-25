@@ -20,7 +20,7 @@ public class Animation implements ActionListener, ChangeListener {
     private final int intSlideLength = 265, intSlideHeight = 20, intVarLabelX = 425, intSlideLabelX = 25, intLabelWidth = 220, intLabelHeight = 25;
     private AnimationPanel animatePanel = new AnimationPanel();
 
-    private Timer mainTimer = new Timer(1000/60, this);
+    private Timer mainTimer = new Timer(1000/48, this);
 
     private JButton backButton = new JButton("<- BACK");
     private JButton goButton = new JButton("GO");

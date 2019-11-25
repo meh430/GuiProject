@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class User {
     private String strName;
     private int intTestScore;
-    private String strTimeTaken;
+    private int intTimeTaken;
     private String strTimeStamp;
     private static ArrayList<String> randomNameList = new ArrayList<>();
 
-    public User(String strName, int intTestScore, String strTimeTaken, String strTimeStamp) {
+    public User(String strName, int intTestScore, int intTimeTaken, String strTimeStamp) {
         this.strName = strName;
         this.intTestScore = intTestScore;
-        this.strTimeTaken = strTimeTaken;
+        this.intTimeTaken = intTimeTaken;
         this.strTimeStamp = strTimeStamp;
     }   
 
@@ -30,8 +30,8 @@ public class User {
         return intTestScore;
     }
 
-    public String getTimeTaken() {
-        return strTimeTaken;
+    public int getTimeTaken() {
+        return intTimeTaken;
     }
 
     public String getTimeStamp() {

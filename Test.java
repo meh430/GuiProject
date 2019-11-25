@@ -56,7 +56,7 @@ public class Test implements ActionListener {
             scoreLabel.setVisible(true);
             scoreLabel.setText("Score: " + intScore + "/5");
 
-            users.addUser(new User(strName, intScore, intTime + "", new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm:ss", Locale.CANADA).format(new Date())));
+            users.addUser(new User(strName, intScore, intTime, new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm:ss", Locale.CANADA).format(new Date())));
             users.saveUsers();
         }
 

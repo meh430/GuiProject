@@ -32,6 +32,7 @@ public class MainMenu implements ActionListener {
             Driver.changePanel(new MainMenu().getMenuPanel());
         } else if(e.getSource() == scoreButton) {
             System.out.println("SCORE");
+            Driver.changePanel(new Scores().getScorePanel());
         } else if(e.getSource() == aboutButton) {
             System.out.println("ABOUT");
         }

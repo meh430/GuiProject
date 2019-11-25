@@ -18,7 +18,7 @@ public class Cart {
     }
 
     public void incrementTime() {
-        dblTime += (1000.0/60.0);
+        dblTime += (1000.0/48.0);
     }
 
     public void startMoving() {
@@ -63,7 +63,7 @@ public class Cart {
 
     public void moveCart(Graphics g) {
         if(blnMoving) {
-            dblVelocity += (dblAcceleration * 5)/60.0;
+            dblVelocity += (dblAcceleration * 5)/48.0;
             //intX += (int)dblVelocity;
             //intWheel1X += (int)dblVelocity;
             //intWheel2X += (int)dblVelocity;
