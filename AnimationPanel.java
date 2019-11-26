@@ -11,6 +11,7 @@ public class AnimationPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        
         drawPlatform(g);
         drawSky(g);
 

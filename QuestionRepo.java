@@ -26,6 +26,12 @@ public class QuestionRepo {
         questionList.add(new QuestionAnswer("A 4kg hanging mass is attached to a 10kg cart. What is the acceleration of the system?", "2.8"));
         questionList.add(new QuestionAnswer("A 13kg hanging mass is attached to a 14kg cart. What is the acceleration of the system?", "4.72"));
         questionList.add(new QuestionAnswer("A 18kg hanging mass is attached to a 11kg cart. What is the acceleration of the system?", "6.08"));
+        questionList.add(new QuestionAnswer("The force on an object is 112N and its mass is 6kg. What is the acceleration?", "18.67"));
+        questionList.add(new QuestionAnswer("The acceleration of an object is 8.43 m/s^2 and its mass is 12.8kg. What is the net force?", "107.9"));
+        questionList.add(new QuestionAnswer("The force on an object is 87N and its acceleration is 4.2 m/s^2. What is its mass?", "20.7"));
+        questionList.add(new QuestionAnswer("The force on an object is 531N and its mass is 92kg. What is the acceleration?", "4.68"));
+        questionList.add(new QuestionAnswer("The acceleration of an object is 6.31 m/s^2 and its mass is 17.2kg. What is the net force?", "108.5"));
+        questionList.add(new QuestionAnswer("The force on an object is 15N and its acceleration is 12 m/s^2. What is its mass?", "1.25"));
     }
 
     public QuestionAnswer[] getRandomQuestions() {

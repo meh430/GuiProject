@@ -17,6 +17,7 @@ public class Test implements ActionListener {
     private JLabel mainLabel = new JLabel("TEST");
     private JLabel timeLabel = new JLabel("Time Taken: 0s");
     private JLabel scoreLabel = new JLabel("Score: 5/5");
+    private JLabel [] correctionLabels = new JLabel[5];
     private JLabel question1Label = new JLabel("Question 1");
     private JLabel question2Label = new JLabel("Question 2");
     private JLabel question3Label = new JLabel("Question 3");
@@ -231,23 +232,32 @@ public class Test implements ActionListener {
 
         for(int i = 0; i < 5; i++) {
             strUserAnswers[i] = getButtonText(answerGroups[i]);
+            correctionLabels[i] = new JLabel();
+            correctionLabels[i].setSize(250, 20);
+            correctionLabels[i].setLocation(650, 70 + (i*60));
+            MainMenu.setLabelStyle(correctionLabels[i], 16);
             if(strUserAnswers[i].equalsIgnoreCase(strActualAnswers[i])) {
                 intScore++;
+                correctionLabels[i].setForeground(Color.GREEN);
+                correctionLabels[i].setText("Correct!");
+            } else {
+                correctionLabels[i].setForeground(Color.RED);
+                correctionLabels[i].setText("Wrong! Answer is " + strActualAnswers[i]);
             }
+            testPanel.add(correctionLabels[i]);
         }
 
         return intScore;
     }
 
     private String getButtonText(ButtonGroup answerGroup) {
-    for (Enumeration radioButtons = answerGroup.getElements(); radioButtons.hasMoreElements();) {
-        Object radioButton = radioButtons.nextElement();
-        if (((JRadioButton)radioButton).isSelected()) {
-            return ((JRadioButton)radioButton).getText();
+        for (Enumeration radioButtons = answerGroup.getElements(); radioButtons.hasMoreElements();) {
+            Object radioButton = radioButtons.nextElement();
+            if (((JRadioButton)radioButton).isSelected()) {
+                return ((JRadioButton)radioButton).getText();
+            }
         }
-    }
-
-    return null;
+        return null;
     }
 
     private void setRadioButtonStyle(JRadioButton radioButton) {

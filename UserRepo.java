@@ -15,6 +15,12 @@ public class UserRepo {
         userList.add(user);
     }
 
+    public void clearUsers() {
+        userList.clear();
+        writer = getWriter();
+        writer.print("");
+    }
+
     public void loadUsers() {
         userList.clear();
         reader = getReader();
