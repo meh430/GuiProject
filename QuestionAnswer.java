@@ -1,7 +1,3 @@
-//Test
-//Question/answer
-//qa repo - list, getAnswers, getQ
-//user - score, time, timestamp
 import java.util.ArrayList;
 public class QuestionAnswer {
     private String strQuestion;
@@ -11,16 +7,39 @@ public class QuestionAnswer {
     public QuestionAnswer(String strQ, String strA) {
         this.strQuestion = strQ;
         this.strAnswer = strA;
-        mockAnswerList.add("4.7");
-        mockAnswerList.add("5.2");
-        mockAnswerList.add("8.5");
-        mockAnswerList.add("9.3");
-        mockAnswerList.add("6.9");
-        mockAnswerList.add("23.5");
-        mockAnswerList.add("53.6");
-        mockAnswerList.add("25");
-        mockAnswerList.add("86");
-        mockAnswerList.add("53");
+        mockAnswerList.add("4.74");
+        mockAnswerList.add("5.21");
+        mockAnswerList.add("8.59");
+        mockAnswerList.add("9.35");
+        mockAnswerList.add("6.92");
+        mockAnswerList.add("23.85");
+        mockAnswerList.add("53.16");
+        mockAnswerList.add("25.65");
+        mockAnswerList.add("86.23");
+        mockAnswerList.add("5.34");
+        mockAnswerList.add("53.75");
+        mockAnswerList.add("8.42");
+        mockAnswerList.add("7.58");
+        mockAnswerList.add("2.06");
+        mockAnswerList.add("95.89");
+        mockAnswerList.add("76.85");
+        mockAnswerList.add("35.96");
+        mockAnswerList.add("73.87");
+        mockAnswerList.add("8.37");
+        mockAnswerList.add("9.25");
+        mockAnswerList.add("1.74");
+        mockAnswerList.add("7.36");
+        mockAnswerList.add("4.36");
+        mockAnswerList.add("2.49");
+        mockAnswerList.add("27.34");
+        mockAnswerList.add("86.46");
+        mockAnswerList.add("12.85");
+        mockAnswerList.add("15.21");
+        mockAnswerList.add("9.45");
+        mockAnswerList.add("23.86");
+        mockAnswerList.add("97.43");
+        mockAnswerList.add("3.67");
+        mockAnswerList.add("4.76");
     }
 
     public String getQuestion() {

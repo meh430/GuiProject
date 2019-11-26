@@ -64,9 +64,6 @@ public class Cart {
     public void moveCart(Graphics g) {
         if(blnMoving) {
             dblVelocity += (dblAcceleration * 5)/48.0;
-            //intX += (int)dblVelocity;
-            //intWheel1X += (int)dblVelocity;
-            //intWheel2X += (int)dblVelocity;
             intX += Math.round(dblVelocity);
             intWheel1X += Math.round(dblVelocity);
             intWheel2X += Math.round(dblVelocity);
@@ -91,13 +88,11 @@ public class Cart {
 
     public void drawMovingRope(Graphics g) {
         if(blnMoving) {
-            //intRope -= (int)dblVelocity;
-            //intRopeX += (int)dblVelocity;
             intRope -= Math.round(dblVelocity);
             intRopeX += Math.round(dblVelocity);
         }
         
-        g.setColor(Color.BLACK);
+        g.setColor(new Color(120, 48, 19));
 
         g.drawLine(intRopeX, 150, intRopeEndX, intRopeEndY);
         if(intRope <= 0) {
@@ -107,7 +102,7 @@ public class Cart {
     }
 
     public void drawRope(Graphics g) {
-        g.setColor(Color.BLACK);
+        g.setColor(new Color(120, 48, 19));
         g.drawLine(intRopeX, intRopeY, intRopeEndX, intRopeEndY);
     }
 }

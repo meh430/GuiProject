@@ -46,24 +46,23 @@ public class Weight {
     public void moveWeight(Graphics g) {
         if(blnMoving) {
             dblVelocity += (dblAcceleration * 5)/48.0;
-            //intY += (int)dblVelocity;
             intY += Math.round(dblVelocity);
         }
-        g.setColor(Color.BLACK);
+        g.setColor(Color.GRAY);
         g.fillRect(intX, intY, intDimensions, intDimensions);
     }
 
     public void drawWeight(Graphics g) {
+        g.setColor(Color.GRAY);
         g.fillRect(intX, intY, intDimensions, intDimensions);
     }
 
     public void drawRope(Graphics g) {
         if(blnMoving) {
             intRope += Math.round(dblVelocity);
-            //intRope += (int)dblVelocity;
         }
-        g.setColor(Color.BLACK);
-        g.drawLine(intRopeX, 175, intRopeX, intY);
+        g.setColor(new Color(120, 48, 19));
+        g.drawLine(intRopeX, 150, intRopeX, intY);
         if(intRope >= 300) {
             blnMoving = false;
         }

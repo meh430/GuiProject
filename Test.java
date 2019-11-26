@@ -10,7 +10,7 @@ import javax.swing.event.*;
 public class Test implements ActionListener {
     private Timer countTimer = new Timer(1000, this);
     private int intTime = 0;
-    private final int intQuestionWidth = 800, intQuestionHeight = 25, intRadioWidth = 50;
+    private final int intQuestionWidth = 800, intQuestionHeight = 25, intRadioWidth = 75;
 
     private JPanel testPanel = new JPanel(null);
 
@@ -68,6 +68,7 @@ public class Test implements ActionListener {
 
     public Test() {
         testPanel.setPreferredSize(new Dimension(Driver.intPanelWidth, Driver.intPanelHeight));
+        testPanel.setBackground(Color.BLACK);
         initializeLabels();
         initializeRadioButtons();
         initializeQuestions();
@@ -83,10 +84,12 @@ public class Test implements ActionListener {
         submitButton.setSize(300, 50);
         submitButton.setLocation(35, 395);
         submitButton.addActionListener(this);
+        MainMenu.setButtonStyle(submitButton, 24);
         
         backButton.setSize(300, 50);
         backButton.setLocation(35, 455);
         backButton.addActionListener(this);
+        MainMenu.setButtonStyle(backButton, 24);
 
         testPanel.add(backButton);
         testPanel.add(submitButton);
@@ -96,26 +99,31 @@ public class Test implements ActionListener {
         question1Label.setSize(intQuestionWidth, intQuestionHeight);
         question1Label.setLocation(15, 70);
         question1Label.setText("1) " + testQuestions[0].getQuestion());
+        MainMenu.setLabelStyle(question1Label, 14);
         testPanel.add(question1Label);
 
         question2Label.setSize(intQuestionWidth, intQuestionHeight);
         question2Label.setLocation(15, 130);
         question2Label.setText("2) " + testQuestions[1].getQuestion());
+        MainMenu.setLabelStyle(question2Label, 14);
         testPanel.add(question2Label);
 
         question3Label.setSize(intQuestionWidth, intQuestionHeight);
         question3Label.setLocation(15, 190);
         question3Label.setText("3) " + testQuestions[2].getQuestion());
+        MainMenu.setLabelStyle(question3Label, 14);
         testPanel.add(question3Label);
 
         question4Label.setSize(intQuestionWidth, intQuestionHeight);
         question4Label.setLocation(15, 250);
         question4Label.setText("4) " + testQuestions[3].getQuestion());
+        MainMenu.setLabelStyle(question4Label, 14);
         testPanel.add(question4Label);
 
         question5Label.setSize(intQuestionWidth, intQuestionHeight);
         question5Label.setLocation(15, 310);
         question5Label.setText("5) " + testQuestions[4].getQuestion());
+        MainMenu.setLabelStyle(question5Label, 14);
         testPanel.add(question5Label);
     }
 
@@ -131,6 +139,7 @@ public class Test implements ActionListener {
             answerRadio1[i].setSize(intRadioWidth, intQuestionHeight);
             answerRadio1[i].setLocation(20 + (i*100), 100);
             answerRadio1[i].setText(strRandomAnswers1[i]);
+            setRadioButtonStyle(answerRadio1[i]);
             testPanel.add(answerRadio1[i]);
             answerGroups[0].add(answerRadio1[i]);
         }
@@ -141,6 +150,7 @@ public class Test implements ActionListener {
             answerRadio2[i].setSize(intRadioWidth, intQuestionHeight);
             answerRadio2[i].setLocation(20 + (i*100), 160);
             answerRadio2[i].setText(strRandomAnswers2[i]);
+            setRadioButtonStyle(answerRadio2[i]);
             testPanel.add(answerRadio2[i]);
             answerGroups[1].add(answerRadio2[i]);
         }
@@ -151,6 +161,7 @@ public class Test implements ActionListener {
             answerRadio3[i].setSize(intRadioWidth, intQuestionHeight);
             answerRadio3[i].setLocation(20 + (i*100), 220);
             answerRadio3[i].setText(strRandomAnswers3[i]);
+            setRadioButtonStyle(answerRadio3[i]);
             testPanel.add(answerRadio3[i]);
             answerGroups[2].add(answerRadio3[i]);
         }
@@ -161,6 +172,7 @@ public class Test implements ActionListener {
             answerRadio4[i].setSize(intRadioWidth, intQuestionHeight);
             answerRadio4[i].setLocation(20 + (i*100), 280);
             answerRadio4[i].setText(strRandomAnswers4[i]);
+            setRadioButtonStyle(answerRadio4[i]);
             testPanel.add(answerRadio4[i]);
             answerGroups[3].add(answerRadio4[i]);
         }
@@ -171,6 +183,7 @@ public class Test implements ActionListener {
             answerRadio5[i].setSize(intRadioWidth, intQuestionHeight);
             answerRadio5[i].setLocation(20 + (i*100), 340);
             answerRadio5[i].setText(strRandomAnswers5[i]);
+            setRadioButtonStyle(answerRadio5[i]);
             testPanel.add(answerRadio5[i]);
             answerGroups[4].add(answerRadio5[i]);
         }
@@ -184,20 +197,24 @@ public class Test implements ActionListener {
 
     private void initializeLabels() {
         mainLabel.setSize(100,25);
-        mainLabel.setLocation(10, 10);
+        mainLabel.setLocation(380, 30);
+        MainMenu.setLabelStyle(mainLabel, 32);
 
         nameLabel.setSize(50, 25);
         nameLabel.setLocation(10, 30);
+        MainMenu.setLabelStyle(nameLabel, 14);
 
         nameField.setSize(150, 25);
         nameField.setLocation(60, 30);
 
-        timeLabel.setSize(100, 25);
-        timeLabel.setLocation(600, 10);
+        timeLabel.setSize(150, 25);
+        timeLabel.setLocation(700, 10);
+        MainMenu.setLabelStyle(timeLabel, 16);
 
         scoreLabel.setVisible(false);
-        scoreLabel.setSize(100, 25);
-        scoreLabel.setLocation(600, 30);
+        scoreLabel.setSize(150, 25);
+        scoreLabel.setLocation(700, 30);
+        MainMenu.setLabelStyle(scoreLabel, 16);
 
         testPanel.add(mainLabel);
         testPanel.add(nameLabel);
@@ -231,6 +248,12 @@ public class Test implements ActionListener {
     }
 
     return null;
+    }
+
+    private void setRadioButtonStyle(JRadioButton radioButton) {
+        radioButton.setBackground(Color.BLACK);
+        radioButton.setForeground(Color.WHITE);
+        radioButton.setFont(Driver.getFont().deriveFont(Font.PLAIN, 14));
     }
 
     public JPanel getTestPanel() {

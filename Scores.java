@@ -60,8 +60,12 @@ public class Scores implements ActionListener {
         backButton.setSize(100, 20);
         backButton.setLocation(0,0);
         backButton.addActionListener(this);
+        MainMenu.setButtonStyle(backButton, 14);
 
         scoreArea.setEditable(false);
+        scoreArea.setFont(Driver.getFont().deriveFont(Font.PLAIN, 16));
+        scoreArea.setBackground(Color.BLACK);
+        scoreArea.setForeground(Color.WHITE);
         scoreScroll.setSize(960, 520);
         scoreScroll.setLocation(0, 20);
 

@@ -12,6 +12,8 @@ public class AnimationPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawPlatform(g);
+        drawSky(g);
+
         if(Animation.weight.isMoving()) {
             Animation.weight.moveWeight(g);
             Animation.weight.drawRope(g);
@@ -34,13 +36,19 @@ public class AnimationPanel extends JPanel {
         }
     }
 
-    public void drawPlatform(Graphics g) {
+    private void drawPlatform(Graphics g) {
         g.drawLine(0, 250, 700, 250);
         g.drawLine(700, 250, 700, 150);
         g.drawLine(700, 150, 750, 150);
         g.drawLine(750, 150, 750, 175);
         g.drawLine(750, 175, 725, 175);
         g.drawLine(725, 175, 725, 540);
-        //g.drawLine();
+    }
+
+    private void drawSky(Graphics g) {
+        g.setColor(new Color(12, 215, 242));
+        int [] intXPoints = {0, 0, 700, 700, 750, 750, 725, 725, 960, 960, 0};
+        int [] intYPoints = {0, 250, 250, 150, 150, 175, 175, 540, 540, 0, 0};
+        g.fillPolygon(intXPoints, intYPoints, 11);
     }
 }

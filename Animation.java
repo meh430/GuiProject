@@ -17,7 +17,7 @@ public class Animation implements ActionListener, ChangeListener {
                     strGravityForce = "Force of Gravity: ", strMass = "Mass of System: ", strNetForce = "Net Force on Weight: ",
                     strVelocity = "Velocity: ", strTime  = "Time: ", strAccelUnits = " m/s^2", strTimeUnits = " s", strMassUnits = " kg", 
                     strVelocUnits = " m/s", strForceUnits = " N";
-    private final int intSlideLength = 265, intSlideHeight = 20, intVarLabelX = 425, intSlideLabelX = 25, intLabelWidth = 220, intLabelHeight = 25;
+    private final int intSlideLength = 265, intSlideHeight = 20, intVarLabelX = 425, intSlideLabelX = 25, intLabelWidth = 250, intLabelHeight = 25;
     private AnimationPanel animatePanel = new AnimationPanel();
 
     private Timer mainTimer = new Timer(1000/48, this);
@@ -26,11 +26,11 @@ public class Animation implements ActionListener, ChangeListener {
     private JButton goButton = new JButton("GO");
     private JButton resetButton = new JButton("RESET");
 
-    private JSlider cartMassSlide = new JSlider(1, 100);
+    private JSlider cartMassSlide = new JSlider(1, 125);
     private JLabel cartMassLabel = new JLabel(strCartMass);
-    private JSlider weightSlide = new JSlider(1, 100);
+    private JSlider weightSlide = new JSlider(1, 125);
     private JLabel weightLabel = new JLabel(strWeight);
-    private JSlider gravitySlide = new JSlider(1, 100);
+    private JSlider gravitySlide = new JSlider(1, 125, 49);
     private JLabel gravityLabel = new JLabel(strGravity);
 
     private JLabel titleLabel = new JLabel("VARIABLES");
@@ -85,6 +85,7 @@ public class Animation implements ActionListener, ChangeListener {
     public Animation() {
         animatePanel.setPreferredSize(new Dimension(Driver.intPanelWidth, Driver.intPanelHeight));
         animatePanel.setLayout(null);
+        animatePanel.setBackground(Color.BLACK);
         initializeButtons();
         initializeSliders();
         initializeLabels();
@@ -106,14 +107,17 @@ public class Animation implements ActionListener, ChangeListener {
         cartMassSlide.setSize(intSlideLength, intSlideHeight);
         cartMassSlide.setLocation(intSlideLabelX, 325);
         cartMassSlide.addChangeListener(this);
+        cartMassSlide.setBackground(Color.BLACK);
 
         weightSlide.setSize(intSlideLength, intSlideHeight);
         weightSlide.setLocation(intSlideLabelX, 375);
         weightSlide.addChangeListener(this);
+        weightSlide.setBackground(Color.BLACK);
 
         gravitySlide.setSize(intSlideLength, intSlideHeight);
         gravitySlide.setLocation(intSlideLabelX, 425);
         gravitySlide.addChangeListener(this);
+        gravitySlide.setBackground(Color.BLACK);
 
         weight = new Weight(weightSlide.getValue() / 5.0, gravitySlide.getValue() / 5.0);
         cart = new Cart(cartMassSlide.getValue() / 5.0);
@@ -125,17 +129,19 @@ public class Animation implements ActionListener, ChangeListener {
 
     private void initializeButtons() {
         backButton.setSize(100, 25);
-        
         backButton.setLocation(15, 15);
         backButton.addActionListener(this);
+        MainMenu.setButtonStyle(backButton, 16);
 
         goButton.setSize(100, 25);
         goButton.setLocation(25, 500);
         goButton.addActionListener(this);
+        MainMenu.setButtonStyle(goButton, 16);
 
         resetButton.setSize(100,25);
         resetButton.setLocation(25, 470);
         resetButton.addActionListener(this);
+        MainMenu.setButtonStyle(resetButton, 16);
 
         animatePanel.add(goButton);
         animatePanel.add(backButton);
@@ -145,41 +151,52 @@ public class Animation implements ActionListener, ChangeListener {
     private void initializeLabels() {
         titleLabel.setSize(100, 25);
         titleLabel.setLocation(525, 300);
+        MainMenu.setLabelStyle(titleLabel, 16);
 
         accelerationLabel.setSize(intLabelWidth, intLabelHeight);
         accelerationLabel.setLocation(intVarLabelX, 325);
+        MainMenu.setLabelStyle(accelerationLabel, 14);
 
         massLabel.setSize(intLabelWidth, intLabelHeight);
         massLabel.setLocation(intVarLabelX, 350);
+        MainMenu.setLabelStyle(massLabel, 14);
 
         tensionLabel.setSize(intLabelWidth, intLabelHeight);
         tensionLabel.setLocation(intVarLabelX, 375);
+        MainMenu.setLabelStyle(tensionLabel, 14);
 
         gravityForceLabel.setSize(intLabelWidth, intLabelHeight);
         gravityForceLabel.setLocation(intVarLabelX, 400);
+        MainMenu.setLabelStyle(gravityForceLabel, 14);
 
         netForceLabel.setSize(intLabelWidth, intLabelHeight);
         netForceLabel.setLocation(intVarLabelX, 425);
+        MainMenu.setLabelStyle(netForceLabel, 14);
 
         velocityLabel.setSize(intLabelWidth, intLabelHeight);
         velocityLabel.setLocation(intVarLabelX, 450);
         velocityLabel.setText(strVelocity + cart.getVelocity() + strVelocUnits);
+        MainMenu.setLabelStyle(velocityLabel, 14);
 
         timeLabel.setSize(intLabelWidth, intLabelHeight);
         timeLabel.setLocation(intVarLabelX, 475);
         timeLabel.setText(strTime + cart.getTime() + strTimeUnits);
+        MainMenu.setLabelStyle(timeLabel, 14);
 
         cartMassLabel.setSize(200, 25);
         cartMassLabel.setLocation(intSlideLabelX, 300);
         cartMassLabel.setText(strCartMass + (cartMassSlide.getValue() / 5.0) + strMassUnits);
+        MainMenu.setLabelStyle(cartMassLabel, 14);
         
         weightLabel.setSize(200, 25);
         weightLabel.setLocation(intSlideLabelX, 350);
         weightLabel.setText(strWeight + (weightSlide.getValue() / 5.0) + strMassUnits);
+        MainMenu.setLabelStyle(weightLabel, 14);
 
         gravityLabel.setSize(200, 25);
         gravityLabel.setLocation(intSlideLabelX, 400);
         gravityLabel.setText(strGravity + (gravitySlide.getValue() / 5.0) + strAccelUnits);
+        MainMenu.setLabelStyle(gravityLabel, 14);
 
         animatePanel.add(titleLabel);
         animatePanel.add(accelerationLabel);
