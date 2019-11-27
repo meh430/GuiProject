@@ -1,0 +1,11 @@
+                                                                           -----HELP-----
+- This program models a pulley system with a cart and a hanging weight that
+  demonstrates acceleration.
+- There are various sliders that let you change the mass of the cart, the mass
+  of the hanging weight, and the acceleration due to gravity.
+- According to Newton's second law of motion, as the mass of the weight increases,
+  the acceleration of the system should increase. As the mass of the cart increases,
+  the acceleration should decrease.
+
+
+- NOTE: one meter is equivalent to 5 pixels

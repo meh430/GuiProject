@@ -228,15 +228,13 @@ public class Test implements ActionListener {
         countTimer.stop();
         int intScore = 0;
 
-        String [] strUserAnswers = new String[5];
-
         for(int i = 0; i < 5; i++) {
-            strUserAnswers[i] = getButtonText(answerGroups[i]);
+            String strUserAnswer = getButtonText(answerGroups[i]);
             correctionLabels[i] = new JLabel();
             correctionLabels[i].setSize(250, 20);
             correctionLabels[i].setLocation(650, 70 + (i*60));
             MainMenu.setLabelStyle(correctionLabels[i], 16);
-            if(strUserAnswers[i].equalsIgnoreCase(strActualAnswers[i])) {
+            if(strUserAnswer.equalsIgnoreCase(strActualAnswers[i])) {
                 intScore++;
                 correctionLabels[i].setForeground(Color.GREEN);
                 correctionLabels[i].setText("Correct!");

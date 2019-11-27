@@ -28,12 +28,13 @@ public class MainMenu implements ActionListener {
             Driver.changePanel(new Test().getTestPanel());
         } else if(e.getSource() == helpButton) {
             System.out.println("HELP");
-            Driver.changePanel(new MainMenu().getMenuPanel());
+            Driver.changePanel(new Help().getHelpPanel());
         } else if(e.getSource() == scoreButton) {
             System.out.println("SCORE");
             Driver.changePanel(new Scores().getScorePanel());
         } else if(e.getSource() == aboutButton) {
             System.out.println("ABOUT");
+            Driver.changePanel(new About().getAboutPanel());
         }
     }
 

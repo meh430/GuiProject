@@ -5,7 +5,6 @@ public class UserRepo {
     private ArrayList<User> userList = new ArrayList<>();
     private PrintWriter writer;
     private BufferedReader reader;
-    private boolean blnErrorOpening = false;
 
     public UserRepo() {
         loadUsers();
@@ -17,23 +16,23 @@ public class UserRepo {
 
     public void clearUsers() {
         userList.clear();
-        writer = getWriter();
+        writer = Driver.getWriter("user_info.txt");
         writer.print("");
     }
 
     public void loadUsers() {
         userList.clear();
-        reader = getReader();
-        String strName = readLine();
+        reader = Driver.getReader("user_info.txt");
+        String strName = Driver.readLine(reader);
         int intTestScore;
         int intTimeTaken;
         String strTimeStamp;
         while(strName != null) {
-            intTestScore = Integer.parseInt(readLine());
-            intTimeTaken = Integer.parseInt(readLine());
-            strTimeStamp = readLine();
+            intTestScore = Integer.parseInt(Driver.readLine(reader));
+            intTimeTaken = Integer.parseInt(Driver.readLine(reader));
+            strTimeStamp = Driver.readLine(reader);
             userList.add(new User(strName, intTestScore, intTimeTaken, strTimeStamp));
-            strName = readLine();
+            strName = Driver.readLine(reader);
         }
 
         try {
@@ -43,18 +42,8 @@ public class UserRepo {
         }
     }
 
-    public String readLine() {
-        try {
-            return reader.readLine();
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
     public void saveUsers() {
-        writer = getWriter();
+        writer = Driver.getWriter("user_info.txt");
         for(User user:userList) {
             writer.println(user.getName());
             writer.println(user.getScore());
@@ -65,33 +54,7 @@ public class UserRepo {
         writer.close();
     }
 
-    private PrintWriter getWriter() {
-        try {
-            return new PrintWriter(new FileWriter("user_info.txt"));
-        } catch(IOException e) {
-            e.printStackTrace();
-            blnErrorOpening = true;
-        }
-
-        return null;
-    }
-
-    private BufferedReader getReader() {
-        try {
-            return new BufferedReader(new FileReader("user_info.txt"));
-        } catch(IOException e) {
-            e.printStackTrace();
-            blnErrorOpening = true;
-        }
-
-        return null;
-    }
-
     public ArrayList<User> getUserList() {
         return userList;
-    }
-    
-    private boolean openingFileFailed() {
-        return blnErrorOpening;
     }
 }
