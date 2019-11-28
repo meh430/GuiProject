@@ -18,11 +18,9 @@ public class AnimationPanel extends JPanel {
         if(Animation.weight.isMoving()) {
             Animation.weight.moveWeight(g);
             Animation.weight.drawRope(g);
-        } else if(!Animation.weight.isMoving()) {
-            Animation.weight.moveWeight(g);
-            Animation.weight.drawRope(g);
         } else if(Animation.weight != null) {
             Animation.weight.drawWeight(g);
+            Animation.weight.drawRope(g);
         }
 
         if(Animation.cart.isMoving()) {

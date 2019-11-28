@@ -57,7 +57,7 @@ public class About implements ActionListener {
 
         aboutProgrammerLabels[0].setText("- This app was made by Mehul Pillai");
         aboutProgrammerLabels[1].setText("- A cool guy with good looks. A loveable, caring man with a good heart");
-        aboutProgrammerLabels[2].setText("- Gets irritating sometimes. (All according to Urban Dictionary)");
+        aboutProgrammerLabels[2].setText("- Gets irritating sometimes(All according to Urban Dictionary)");
 
         aboutPanel.add(backButton);
         aboutPanel.add(mainLabel);

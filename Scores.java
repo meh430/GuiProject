@@ -50,7 +50,7 @@ public class Scores implements ActionListener {
             scoreArea.append("**************************************************************************************************************************************\n");
             scoreArea.append(" Name: " + user.getName() + "\n");
             scoreArea.append(" Score: " + user.getScore() + "/5\n");
-            scoreArea.append(" Finish Time: " + user.getTimeTaken() + "\n");
+            scoreArea.append(" Finish Time: " + user.getTimeTaken() + "s\n");
             scoreArea.append(" Time Stamp: " + user.getTimeStamp() + "\n\n");
         }
     }

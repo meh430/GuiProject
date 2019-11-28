@@ -20,6 +20,7 @@ public class Help implements ActionListener {
     public Help() {
         helpPanel.setPreferredSize(new Dimension(Driver.intPanelWidth, Driver.intPanelHeight));
         helpPanel.setBackground(Color.BLACK);
+        helpArea.setEditable(false);
         helpArea.setBackground(Color.BLACK);
         helpArea.setForeground(Color.WHITE);
         helpArea.setFont(Driver.getFont().deriveFont(Font.PLAIN, 24));

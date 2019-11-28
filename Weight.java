@@ -48,8 +48,7 @@ public class Weight {
             dblVelocity += (dblAcceleration * 5)/48.0;
             intY += Math.round(dblVelocity);
         }
-        g.setColor(Color.GRAY);
-        g.fillRect(intX, intY, intDimensions, intDimensions);
+        drawWeight(g);
     }
 
     public void drawWeight(Graphics g) {
