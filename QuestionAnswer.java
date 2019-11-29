@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+
+//This class is a blueprint for a question in the test module
 public class QuestionAnswer {
     private String strQuestion;
     private String strAnswer;
+    //A list of all the other filler choices
     private ArrayList<String> mockAnswerList = new ArrayList<>();
 
     public QuestionAnswer(String strQ, String strA) {
@@ -50,6 +53,7 @@ public class QuestionAnswer {
         return strAnswer;
     }
 
+    //Returns an array of Strings with the answer and other random mock answers
     public String[] getAnswerChoices() {
         ArrayList<Integer> indexList = new ArrayList<>();
         String[] answerChoices = new String[4];
