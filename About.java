@@ -4,53 +4,52 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.awt.image.BufferedImage;
 
+//This class implements the About screen
 public class About implements ActionListener {
 
+    //Properties
     private AboutPanel aboutPanel = new AboutPanel();
+    
     private JButton backButton = new JButton("<- BACK");
+
     private JLabel mainLabel = new JLabel("About The Programmer");
     private JLabel schoolLabel = new JLabel("Special Thanks To Mr. Cadawas");
-
-    private JLabel [] aboutProgrammerLabels = new JLabel[3];
     private JLabel aboutSchoolLabel = new JLabel("- For running an informative and all-round fun class!");
+    private JLabel [] aboutProgrammerLabels = new JLabel[3];
 
-
-    public About() {
-        aboutPanel.setLayout(null);
-        aboutPanel.setPreferredSize(new Dimension(Driver.intPanelWidth, Driver.intPanelHeight));
-        aboutPanel.setBackground(Color.BLACK);
-        initializeComponents();
-    }
-
+    //Methods
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == backButton) {
-            Driver.changePanel(Driver.menuScreen.getMenuPanel());
+            //Switch back to the Main Menu when back button is pressed
+            Utility.changePanel(Driver.menuScreen.getMenuPanel());
         }
     }
 
+    //Set locations and sizes for all the JComponents and adds them to the panel
     private void initializeComponents() {
-        MainMenu.setButtonStyle(backButton, 14);
+        Utility.setButtonStyle(backButton, 14);
         backButton.addActionListener(this);
         backButton.setSize(100,25);
         backButton.setLocation(20, 20);
 
-        MainMenu.setLabelStyle(mainLabel, 20);
+        Utility.setLabelStyle(mainLabel, 20);
         mainLabel.setSize(300, 25);
         mainLabel.setLocation(545, 20);
 
-        MainMenu.setLabelStyle(schoolLabel, 20);
+        Utility.setLabelStyle(schoolLabel, 20);
         schoolLabel.setSize(300, 25);
         schoolLabel.setLocation(545, 200);
 
-        MainMenu.setLabelStyle(aboutSchoolLabel, 16);
+        Utility.setLabelStyle(aboutSchoolLabel, 16);
         aboutSchoolLabel.setSize(450, 25);
         aboutSchoolLabel.setLocation(535, 220);
 
         for(int i = 0; i < 3; i++) {
             aboutProgrammerLabels[i] = new JLabel();
-            MainMenu.setLabelStyle(aboutProgrammerLabels[i], 16);
+            Utility.setLabelStyle(aboutProgrammerLabels[i], 16);
             aboutProgrammerLabels[i].setSize(500, 25);
+            //Set these labels with a space of 30 pixels vertically
             aboutProgrammerLabels[i].setLocation(450, 50 + (i*30));
             aboutPanel.add(aboutProgrammerLabels[i]);
         }
@@ -67,5 +66,13 @@ public class About implements ActionListener {
 
     public JPanel getAboutPanel() {
         return aboutPanel;
+    }
+
+    //Constructor
+    public About() {
+        aboutPanel.setLayout(null);
+        aboutPanel.setPreferredSize(Utility.panelDimensions);
+        aboutPanel.setBackground(Color.BLACK);
+        initializeComponents();
     }
 }

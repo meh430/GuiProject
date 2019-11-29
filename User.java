@@ -1,19 +1,16 @@
 import java.util.ArrayList;
 
+//This class is a blueprint for a user
 public class User {
+    //Properties
     private String strName;
     private int intTestScore;
     private int intTimeTaken;
     private String strTimeStamp;
     private static ArrayList<String> randomNameList = new ArrayList<>();
 
-    public User(String strName, int intTestScore, int intTimeTaken, String strTimeStamp) {
-        this.strName = strName;
-        this.intTestScore = intTestScore;
-        this.intTimeTaken = intTimeTaken;
-        this.strTimeStamp = strTimeStamp;
-    }   
-
+    //Methods
+    //Return random name in case user does not enter name
     public static String getRandomName() {
         randomNameList.add("Boomer");
         randomNameList.add("Bruh");
@@ -62,4 +59,12 @@ public class User {
     public String getTimeStamp() {
         return strTimeStamp;
     }
+
+    //Constructor
+    public User(String strName, int intTestScore, int intTimeTaken, String strTimeStamp) {
+        this.strName = strName;
+        this.intTestScore = intTestScore;
+        this.intTimeTaken = intTimeTaken;
+        this.strTimeStamp = strTimeStamp;
+    } 
 }

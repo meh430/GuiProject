@@ -1,21 +1,24 @@
-import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
-import javax.swing.event.*;
-import java.awt.image.BufferedImage;
+import java.awt.*;
 
+//Implements the JPanel used in the About screen
 public class AboutPanel extends JPanel {
-    public AboutPanel() {
-        super();
-    }
 
+    //Methods
     @Override
-    public void paintComponent(Graphics g) {  
+    public void paintComponent(Graphics g){
         super.paintComponent(g);
         drawImages(g);
     }
 
     private void drawImages(Graphics g) {
-        g.drawImage(Driver.loadImage("stALogo.png"), 20, 50, null);
+        //draw the St A logo to the panel
+        g.drawImage(Utility.loadImage("stALogo.png"), 20, 50, null);
+    }
+
+    //Constructor
+    public AboutPanel() {
+        //Initialize default JPanel properties
+        super();
     }
 }

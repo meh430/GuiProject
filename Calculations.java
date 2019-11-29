@@ -1,5 +1,7 @@
+//This class handles all the calculations related to Newton's second law
 public class Calculations {
 
+    //Rounds numbers to two decimal places
     public static double round(double dblNum) {
         return Math.round(dblNum * 100.0) / 100.0;
     }
@@ -9,6 +11,7 @@ public class Calculations {
             double dblWeightMass = weight.getMass();
             double dblCartMass = cart.getMass();
             double dblForceGravity = calculateForceGravity(weight);
+            //Calculate acceleration according to F=ma
             return dblForceGravity/(dblWeightMass + dblCartMass);
         } 
 
@@ -34,6 +37,7 @@ public class Calculations {
         return -1;
     }
 
+    //Calculate net force experienced by the weight
     public static double calculateNetForce(Weight weight, Cart cart) {
         if(weight != null) {
             double dblForceGravity = calculateForceGravity(weight);
